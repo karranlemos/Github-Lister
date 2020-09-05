@@ -5,7 +5,7 @@ import Default from '../layout/Default';
 export default function About() {
     const content = (
         <React.Fragment>
-            <h2>About</h2>
+            <h1>About</h1>
             <p>TODO.</p>
         </React.Fragment>
     );

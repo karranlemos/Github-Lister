@@ -1,0 +1,18 @@
+:root {
+    --bg-color-nav: #151515;
+    --color-nav: #fff;
+    --bg-color-button-nav: #151515;
+    --bg-color-button-nav-hover: #1a1a1a;
+
+    --bg-color-footer: #151515;
+    --color-footer: #fff;
+
+    --bg-color-main: rgb(240, 240, 240);
+    --bg-color-main-content: rgb(252, 252, 252);
+
+
+
+    --container-max-width: 1000px;
+    --navbar-height: 80px;
+    --footer-height: 100px;
+}

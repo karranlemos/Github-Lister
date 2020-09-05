@@ -5,10 +5,12 @@ import Footer from './inc/Footer';
 
 export default function Default(props) {
     return (
-        <div className="container">
+        <div className="app-wrapper">
             <Header/>
-            <main>
-                {props.content}
+            <main id="main">
+                <div className="container">
+                    {props.content}
+                </div>
             </main>
             <Footer/>
         </div>
