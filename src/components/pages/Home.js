@@ -1,12 +1,12 @@
 import React from 'react'
 
 import Default from '../layout/Default';
+import Checker from '../app/Checker';
 
 export default function Home() {
     const content = (
         <React.Fragment>
-            <h1>Homepage</h1>
-            <p>Hello there!</p>
+            <Checker/>
         </React.Fragment>
     );
     return <Default content={content}/>;

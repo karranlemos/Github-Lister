@@ -21,6 +21,21 @@
   display: none !important;
 }
 
+button, .btn {
+  background-color: var(--bg-color-btn);
+  border-width: 0;
+  color: var(--color-btn);
+  cursor: pointer;
+}
+
+button.primary, .btn.primary {
+  background-color: var(--bg-color-btn-primary);
+}
+
+button.secondary, .btn.secondary {
+  background-color: var(--bg-color-btn-secondary);
+}
+
 
 
 header#header {
@@ -89,4 +104,21 @@ footer#footer .container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+
+form.wide-search-form {
+  display: flex;
+  gap: 5px;
+  width: 100%;
+}
+
+form.wide-search-form input[type=search] {
+  flex: 1 0;
+  padding: 10px;
+}
+
+form.wide-search-form button {
+  flex: 0 0;
 }

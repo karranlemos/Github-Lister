@@ -11,6 +11,13 @@
     --bg-color-main-content: rgb(252, 252, 252);
 
 
+    --bg-color-btn: #b24968;
+    --bg-color-btn-primary: #6c3779;
+    --bg-color-btn-secondary: #6c5fa7;
+    --color-btn: white;
+
+    /* #fa8572 */
+
 
     --container-max-width: 1000px;
     --navbar-height: 80px;
