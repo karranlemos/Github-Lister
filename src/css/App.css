@@ -115,10 +115,37 @@ form.wide-search-form {
 }
 
 form.wide-search-form input[type=search] {
-  flex: 1 0;
+  flex: 1 1;
   padding: 10px;
+  min-width: 120px;
+  width: 100%
 }
 
 form.wide-search-form button {
   flex: 0 0;
+}
+
+
+
+table.results {
+  table-layout: auto;
+
+  width: 100%;
+  border-collapse: collapse;
+
+  margin: 20px 0;
+}
+
+table.results th, table.results td {
+  padding: 10px 20px;
+  word-wrap: break-word;
+}
+
+table.results th {
+  text-align: right;
+}
+
+table.results td {
+  width: 100%;
+  word-break: break-all;
 }

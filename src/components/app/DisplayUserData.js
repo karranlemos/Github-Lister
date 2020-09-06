@@ -16,13 +16,13 @@ export default class DisplayUserData extends React.Component {
             if (this.props.githubData.message)
                 return <p>{this.props.githubData.message}</p>;
             else
-                return <React.Fragment/>;
+                return null;
         }
 
         const userData = this.props.githubData.userData;
 
         return (
-            <table>
+            <table className="results">
                 <tbody>
                     {this.createDataRow('Username', userData.login)}
                     {this.createDataRow('URL', userData.html_url)}
@@ -34,6 +34,9 @@ export default class DisplayUserData extends React.Component {
     }
 
     createDataRow(head, data) {
+        if (!data)
+            return null;
+
         return (
             <tr>
                 <th>{head}</th>
