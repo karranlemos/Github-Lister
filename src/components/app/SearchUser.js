@@ -1,10 +1,7 @@
 import React from 'react';
-
-import CheckerContext from '../contexts/CheckerContext';
+import PropTypes from 'prop-types';
 
 export default class SearchUser extends React.Component {
-    static contextType = CheckerContext;
-
     state = {
         username: '',
     };
@@ -36,8 +33,12 @@ export default class SearchUser extends React.Component {
 
     search = (e) => {
         e.preventDefault();
-        this.context.searchUser(this.state.username);
+        this.props.submitUsername(this.state.username);
         this.setState({username: ''});
         e.target.reset();
+    }
+
+    static propTypes = {
+        submitUsername: PropTypes.func.isRequired,
     }
 }
