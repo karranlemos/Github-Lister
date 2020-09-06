@@ -23,7 +23,6 @@ export default function RenderRepos(props) {
                         {helpers.createDataRow('Licence', repo.licence ?? 'None')}
                         {helpers.createDataRow('Description', repo.description ?? 'None')}
                         {helpers.createDataRow('URL', repo.html_url, true)}
-                        {helpers.createDataRow('Visibility', repo.private ? 'Private' : 'Public')}
                         {helpers.createDataRow('Created', repo.created_at)}
                         {helpers.createDataRow('Updated', repo.updated_at)}
                     </tbody>
