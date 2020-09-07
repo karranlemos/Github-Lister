@@ -138,25 +138,60 @@ form.wide-search-form button {
 
 
 
-table.results {
-  table-layout: auto;
 
-  width: 100%;
-  border-collapse: collapse;
+.centralized {
+  margin: 0 auto;
+}
 
+.profile-data {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
   margin: 20px 0;
+  padding: 20px;
 }
 
-table.results th, table.results td {
-  padding: 10px 20px;
-  word-wrap: break-word;
+.profile-data header.profile-header {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-rows: auto auto;
+  grid-template-columns: max-content max-content;
+  grid-template-areas: "profile-picture username"
+                       "profile-picture user-type";
 }
 
-table.results th {
-  text-align: right;
+.profile-data header.profile-header .profile-picture {
+  grid-area: profile-picture;
+
+  width: 140px;
+  height: auto;
+  border-radius: 50%;
 }
 
-table.results td {
-  width: 100%;
-  word-break: break-all;
+.profile-data header.profile-header .username {
+  grid-area: username;
+  display: flex;
+  align-items: end;
+
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.profile-data header.profile-header .user-type {
+  grid-area: user-type;
+  display: flex;
+  align-items: start;
+
+  font-size: 24px;
+}
+
+.profile-data .profile-item.name-value-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.profile-data .profile-item.name-value-item .item-name {
+  font-weight: bold;
 }

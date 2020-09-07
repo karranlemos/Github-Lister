@@ -1,6 +1,6 @@
 import React from 'react';
 
-import helpers from './helpers';
+import Helpers from './helpers';
 
 export default function RenderRepos(props) {
     const repos = props.repos;
@@ -15,7 +15,7 @@ export default function RenderRepos(props) {
     return (
         <div className="repos-results">
             <h2>Repos</h2>
-            {repos.map(repo => {
+            {/* {repos.map(repo => {
                 const license = (repo.license && repo.license.name) ? repo.license.name : 'None';
                 return (
                     <table key={repo.name} className="results">
@@ -30,7 +30,7 @@ export default function RenderRepos(props) {
                         </tbody>
                     </table>
                 )
-            })}
+            })} */}
         </div>
     );
 }
