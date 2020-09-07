@@ -5,10 +5,13 @@ import Helpers from './helpers';
 export default function RenderRepos(props) {
     const repos = props.repos;
 
-    if (repos === undefined) {
+    if (repos.errorMessage) {
+        return <p>{repos.errorMessage}</p>;
+    }
+    if (!repos.data) {
         return null;
     }
-    if (repos.length === 0) {
+    if (repos.data.length === 0) {
         return (
             <div className="profile-repos">
                 <div className="profile-repo">No repos found.</div>
@@ -18,7 +21,7 @@ export default function RenderRepos(props) {
     
     return (
         <div className="profile-repos">
-            {repos.map(repo => {
+            {repos.data.map(repo => {
                 const license = (repo.license && repo.license.name) ? repo.license.name : 'None';
                 return (
                     <div key={repo.id} className="profile-repo">

@@ -5,29 +5,26 @@ import Helpers from './helpers';
 export default function RenderUserData(props) {
     const userData = props.userData;
 
-    if (userData === undefined) {
-        return (<p>Not Found</p>);
+    if (userData.errorMessage) {
+        return <p>{userData.errorMessage}</p>;
     }
-    if (userData === '') {
+    if (userData.data === '') {
         return null;
-    }
-    if (typeof userData === 'string') {
-        return <p>{userData}</p>
     }
 
     return (
         <div className="profile-data">
             <header class="profile-header">
-                <img class="profile-picture" src={userData.avatar_url} alt="Profile Picture"/>
-                <div className="username">{userData.login}</div>
-                <div className="user-type">{userData.type}</div>
+                <img class="profile-picture" src={userData.data.avatar_url} alt="Profile Picture"/>
+                <div className="username">{userData.data.login}</div>
+                <div className="user-type">{userData.data.type}</div>
             </header>
             <div className="profile-items">
-                {Helpers.getProfileItem('Name', userData.name ?? 'unavailable')}
-                {Helpers.getProfileItem('Bio', userData.bio ?? 'unavailable')}
-                {Helpers.getProfileItem('URL', userData.html_url, true)}
-                {Helpers.getProfileItem('Created', Helpers.getDateString(userData.created_at))}
-                {Helpers.getProfileItem('Updated', Helpers.getDateString(userData.updated_at))}
+                {Helpers.getProfileItem('Name', userData.data.name ?? 'unavailable')}
+                {Helpers.getProfileItem('Bio', userData.data.bio ?? 'unavailable')}
+                {Helpers.getProfileItem('URL', userData.data.html_url, true)}
+                {Helpers.getProfileItem('Created', Helpers.getDateString(userData.data.created_at))}
+                {Helpers.getProfileItem('Updated', Helpers.getDateString(userData.data.updated_at))}
             </div>
         </div>
     );
