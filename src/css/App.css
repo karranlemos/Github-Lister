@@ -71,16 +71,57 @@ nav#nav a {
   text-decoration: none;
 }
 
-nav#nav a.nav-button {
+nav#nav .nav-button {
   display: inline-flex;
   align-items: center;
   padding: 0 20px;
 
-  background-color: var(--bg-color-button-nav);
+  cursor: pointer;
 }
 
-nav#nav a.nav-button:hover {
+nav#nav .nav-button:hover {
   background-color: var(--bg-color-button-nav-hover);
+}
+
+nav#nav .mobile-menu-button {
+  display: none;
+  background-image: url('/images/icons/Hamburger-white.svg');
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80px;
+}
+
+@media only screen and (max-width: 700px) {
+  nav#nav .mobile-menu-button {
+    display: block;
+  }
+
+  nav#nav.show .mobile-menu-button {
+    background-image: url('/images/icons/Multiplication_Sign-white.svg');
+  }
+
+  nav#nav .nav-options {
+    position: absolute;
+    top: 100%;
+
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - var(--navbar-height));
+
+    background-color: var(--bg-color-button-nav);
+  }
+
+  nav#nav.show .nav-options {
+    display: flex;
+  }
+
+  nav#nav .nav-options .nav-button {
+    height: var(--navbar-button-mobile-height);
+    display: flex;
+    justify-content: center;
+  }
 }
 
 

@@ -22,5 +22,6 @@
 
     --container-max-width: 1000px;
     --navbar-height: 80px;
+    --navbar-button-mobile-height: 80px;
     --footer-height: 100px;
 }

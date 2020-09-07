@@ -2,16 +2,35 @@ import React from 'react'
 
 import {Link} from 'react-router-dom';
 
-export default function Navbar() {
-    return (
-        <nav id="nav">
-            <div className="container">
-                <Link className="nav-button main-button" to="/">GitHub Lister</Link>
-                <div className="nav-options">
-                    <Link className="nav-button" to="/">Home</Link>
-                    <Link className="nav-button" to="/about">About</Link>
+export default class Navbar extends React.Component {
+    state = {
+        mobileMenu: false
+    };
+
+    render() {
+        return (
+            <nav id="nav" class={this.state.mobileMenu ? 'show' : ''}>
+                <div className="container">
+                    <Link className="nav-button main-button" to="/" onClick={this.closeMenu}>GitHub Lister</Link>
+                    <div className="mobile-menu-button nav-button" onClick={this.toggleMenu}></div>
+                    <div className="nav-options">
+                        <Link className="nav-button" to="/" onClick={this.closeMenu}>Home</Link>
+                        <Link className="nav-button" to="/about" onClick={this.closeMenu}>About</Link>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    );
+            </nav>
+        );
+    }
+
+    toggleMenu = () => {
+        this.setState({
+            mobileMenu: !this.state.mobileMenu
+        });
+    }
+
+    closeMenu = () => {
+        this.setState({
+            mobileMenu: false
+        });
+    }
 }
