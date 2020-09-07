@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import RenderUserData from './RenderUserData';
 import RenderRepos from './RenderRepos';
 
+const AUTHENTICATION = '';
+
 export default class DisplayGithubData extends React.Component {
     constructor(props) {
         super(props);
@@ -18,12 +20,14 @@ export default class DisplayGithubData extends React.Component {
         return {
             userData: {
                 data: '',
-                errorMessage: null,
+                state: 'empty',
+                message: null,
             },
 
             repos: {
                 data: undefined,
-                errorMessage: null,
+                state: 'empty',
+                message: null,
             },
         }
     }
@@ -40,15 +44,24 @@ export default class DisplayGithubData extends React.Component {
     }
 
     render() {
-        if (this.state.userData.data === '')
-            return null;
+        const userStateReturns = {
+            empty: () => null,
+            error: () => <div className="subcontainer center">{this.state.userData.message}</div>,
+            loading: () => <div className="subcontainer center"><span className="loading"></span></div>,
+            
+            delegate: () => (
+                <div className="subcontainer split">
+                    <RenderUserData userData={this.state.userData}/>
+                    <RenderRepos repos={this.state.repos}/>
+                </div>
+            ),
+        };
 
-        return (
-            <div class="subcontainer split">
-                <RenderUserData userData={this.state.userData}/>
-                <RenderRepos repos={this.state.repos}/>
-            </div>
-        );
+        console.log(this.state.userData.state);
+
+        if (['empty', 'error', 'loading'].includes(this.state.userData.state))
+            return userStateReturns[this.state.userData.state]();
+        return userStateReturns.delegate();
     }
 
 
@@ -64,11 +77,15 @@ export default class DisplayGithubData extends React.Component {
         const request = new XMLHttpRequest();
         request.onload = () => {
             if (request.status === 404) {
-                this.setErrorUserData('User Not Found');
+                this.setUserDataError('User Not Found');
+                return;
+            }
+            if (request.status === 403) {
+                this.setUserDataError('Forbidden from accessing the API. API rate limit might have been exceeded.');
                 return;
             }
             if (request.status !== 200) {
-                this.setErrorUserData("Couldn't fetch data");
+                this.setUserDataError("Couldn't fetch data");
                 return;
             }
 
@@ -76,7 +93,7 @@ export default class DisplayGithubData extends React.Component {
                 var userData = JSON.parse(request.responseText);
             }
             catch (e) {
-                this.setErrorUserData("Couldn't parse data");
+                this.setUserDataError("Couldn't parse data");
                 return;
             }
 
@@ -84,23 +101,25 @@ export default class DisplayGithubData extends React.Component {
             this.fetchRepos(userData.repos_url);
         };
         request.open('get', url);
+
+        this.setUserDataLoading();
         request.send();
     };
 
     fetchRepos = (reposUrl) => {
         if (!reposUrl) {
-            this.setErrorRepos("reposUrl undefined");
+            this.setReposError("reposUrl undefined");
             return;
         }
 
         const request = new XMLHttpRequest();
         request.onload = () => {
             if (request.status === 404) {
-                this.setErrorRepos(`No repository on "${reposUrl}".`);
+                this.setReposError(`No repository on "${reposUrl}".`);
                 return;
             }
             if (request.status !== 200) {
-                this.setErrorRepos(`Couldn't fetch data from "${reposUrl}".`);
+                this.setReposError(`Couldn't fetch data from "${reposUrl}".`);
                 return;
             }
 
@@ -108,20 +127,40 @@ export default class DisplayGithubData extends React.Component {
                 var repos = JSON.parse(request.responseText);
             }
             catch (e) {
-                this.setErrorRepos("Couldn't parse data");
+                this.setReposError("Couldn't parse data");
                 return;
             }
 
             this.setRepos(repos);
         };
         request.open('get', reposUrl);
+
+        this.setReposLoading();
         request.send();
     };
 
     setUserData = (data) => {
         this.setState({
             userData: {
-                data: data
+                data: data,
+                state: 'loaded'
+            }
+        });
+    }
+
+    setUserDataError = (message) => {
+        this.setState({
+            userData: {
+                message: message,
+                state: 'error'
+            }
+        });
+    }
+
+    setUserDataLoading = () => {
+        this.setState({
+            userData: {
+                state: 'loading'
             }
         });
     }
@@ -129,23 +168,25 @@ export default class DisplayGithubData extends React.Component {
     setRepos = (data) => {
         this.setState({
             repos: {
-                data: data
+                data: data,
+                state: 'loaded'
             }
         });
     }
 
-    setErrorUserData = (errorMessage) => {
-        this.setState({
-            userData: {
-                errorMessage: errorMessage
-            }
-        });
-    }
-
-    setErrorRepos = (errorMessage) => {
+    setReposError = (message) => {
         this.setState({
             repos: {
-                errorMessage: errorMessage
+                message: message,
+                state: 'error'
+            }
+        });
+    }
+
+    setReposLoading = () => {
+        this.setState({
+            repos: {
+                state: 'loading'
             }
         });
     }

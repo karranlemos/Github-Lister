@@ -41,6 +41,20 @@ button.secondary, .btn.secondary {
   display: none;
 }
 
+.center {
+  text-align: center;
+}
+
+.loading {
+  background-image: url('/images/icons/loading.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
 
 
 header#header {
