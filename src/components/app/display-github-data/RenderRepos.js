@@ -23,12 +23,14 @@ export default function RenderRepos(props) {
                 return (
                     <div key={repo.id} className="profile-repo">
                         <div className="repo-title">{repo.name}</div>
-                        {Helpers.getProfileItem('Language', repo.language)}
-                        {Helpers.getProfileItem('Licence', license)}
-                        {Helpers.getProfileItem('Description', repo.description ?? 'None')}
-                        {Helpers.getProfileItem('URL', repo.html_url, true)}
-                        {Helpers.getProfileItem('Created', Helpers.getDateString(repo.created_at))}
-                        {Helpers.getProfileItem('Updated', Helpers.getDateString(repo.updated_at))}
+                        <div className="profile-items">
+                            {Helpers.getProfileItem('Language', repo.language)}
+                            {Helpers.getProfileItem('Licence', license)}
+                            {Helpers.getProfileItem('Description', repo.description ?? 'None')}
+                            {Helpers.getProfileItem('URL', repo.html_url, true)}
+                            {Helpers.getProfileItem('Created', Helpers.getDateString(repo.created_at))}
+                            {Helpers.getProfileItem('Updated', Helpers.getDateString(repo.updated_at))}
+                        </div>
                     </div>
                 )
             })}

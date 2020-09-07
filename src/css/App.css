@@ -253,6 +253,12 @@ form.wide-search-form button {
 }
 
 
+.profile-items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;  
+}
+
 .profile-item {
   margin: 10px 0;
 }

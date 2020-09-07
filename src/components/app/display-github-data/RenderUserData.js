@@ -22,11 +22,13 @@ export default function RenderUserData(props) {
                 <div className="username">{userData.login}</div>
                 <div className="user-type">{userData.type}</div>
             </header>
-            {Helpers.getProfileItem('Name', userData.name ?? 'unavailable')}
-            {Helpers.getProfileItem('Bio', userData.bio ?? 'unavailable')}
-            {Helpers.getProfileItem('URL', <a href={userData.html_url}>{userData.html_url}</a>)}
-            {Helpers.getProfileItem('Created', Helpers.getDateString(userData.created_at))}
-            {Helpers.getProfileItem('Updated', Helpers.getDateString(userData.updated_at))}
+            <div className="profile-items">
+                {Helpers.getProfileItem('Name', userData.name ?? 'unavailable')}
+                {Helpers.getProfileItem('Bio', userData.bio ?? 'unavailable')}
+                {Helpers.getProfileItem('URL', userData.html_url, true)}
+                {Helpers.getProfileItem('Created', Helpers.getDateString(userData.created_at))}
+                {Helpers.getProfileItem('Updated', Helpers.getDateString(userData.updated_at))}
+            </div>
         </div>
     );
 }

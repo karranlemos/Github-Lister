@@ -17,7 +17,9 @@ class Helpers {
         return `${day}/${month}/${year}`;
     }
 
-    static getProfileItem(name, value) {
+    static getProfileItem(name, value, isLink=false) {
+        if (isLink)
+            value = <a href={value}>{value}</a>;
         return (
             <div className="profile-item name-value-item">
                 <div className="item-name">{name}</div>
