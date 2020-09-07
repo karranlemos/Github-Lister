@@ -11,10 +11,10 @@ export default class Checker extends React.Component {
 
     render() {
         return (
-            <div className="checker-container">
+            <React.Fragment>
                 <SearchUser submitUsername={this.submitUsername}/>
                 <DisplayGithubData username={this.state.username}/>
-            </div>
+            </React.Fragment>
         );
     }
 

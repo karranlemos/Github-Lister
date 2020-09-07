@@ -8,7 +8,7 @@ export default class SearchUser extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="search-form-container subcontainer">
                 <form action="" className="wide-search-form" onSubmit={this.search}>
                     <input
                         type="search"
@@ -21,7 +21,7 @@ export default class SearchUser extends React.Component {
                         className="primary"
                     >Search</button>
                 </form>
-            </React.Fragment>
+            </div>
         );
     }
 

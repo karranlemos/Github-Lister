@@ -1,4 +1,4 @@
-
+import React from 'react';
 
 class Helpers {
     constructor() {
@@ -15,6 +15,15 @@ class Helpers {
         const year = String(createdDate.getFullYear()).padStart(4, '0');
 
         return `${day}/${month}/${year}`;
+    }
+
+    static getProfileItem(name, value) {
+        return (
+            <div className="profile-item name-value-item">
+                <div className="item-name">{name}</div>
+                <div className="item-value">{value}</div>
+            </div>
+        );
     }
 };
 

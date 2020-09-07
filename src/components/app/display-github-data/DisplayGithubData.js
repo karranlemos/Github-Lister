@@ -18,11 +18,14 @@ export default class DisplayGithubData extends React.Component {
     }
 
     render() {
+        if (this.state.userData === '')
+            return null;
+
         return (
-            <React.Fragment>
+            <div class="subcontainer split">
                 <RenderUserData userData={this.state.userData}/>
                 <RenderRepos repos={this.state.repos}/>
-            </React.Fragment>
+            </div>
         );
     }
 
