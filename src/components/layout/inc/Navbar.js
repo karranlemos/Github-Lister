@@ -9,7 +9,7 @@ export default class Navbar extends React.Component {
 
     render() {
         return (
-            <nav id="nav" class={this.state.mobileMenu ? 'show' : ''}>
+            <nav id="nav" className={this.state.mobileMenu ? 'show' : ''}>
                 <div className="container">
                     <Link className="nav-button main-button" to="/" onClick={this.closeMenu}>GitHub Lister</Link>
                     <div className="mobile-menu-button nav-button" onClick={this.toggleMenu}></div>
