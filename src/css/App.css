@@ -274,10 +274,11 @@ form.wide-search-form button {
 
 .profile-data header.profile-header .profile-picture {
   width: 120px;
-  height: auto;
+  height: 120px;
   border-radius: 50%;
 
   margin-bottom: 10px;
+  background-color: rgb(204, 204, 204);
 }
 
 .profile-data header.profile-header .username {

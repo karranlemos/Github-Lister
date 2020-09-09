@@ -5,10 +5,10 @@ class Helpers {
         throw 'Static Class';
     }
 
-    static getDateString(anyDate) {
+    static getDateString(anyDate, errorString='') {
         const createdDate = new Date(anyDate);
         if (String(createdDate) === 'Invalid Date')
-            throw 'Invalid Date';
+            return errorString;
         
         const day = String(createdDate.getDate()).padStart(2, '0');
         const month = String(createdDate.getMonth()+1).padStart(2, '0');

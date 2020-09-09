@@ -12,16 +12,16 @@ export default function RenderUserData(props) {
         loaded: () => (
             <div className="profile-data">
                 <header className="profile-header">
-                    <img className="profile-picture" src={userData.data.avatar_url} alt="Profile Picture"/>
+                    <img className="profile-picture" src={userData.data.avatar_url} title="Profile Picture"/>
                     <div className="username">{userData.data.login}</div>
                     <div className="user-type">{userData.data.type}</div>
                 </header>
                 <div className="profile-items">
-                    {Helpers.getProfileItem('Name', userData.data.name ?? 'unavailable')}
-                    {Helpers.getProfileItem('Bio', userData.data.bio ?? 'unavailable')}
+                    {Helpers.getProfileItem('Name', userData.data.name ?? 'Unavailable')}
+                    {Helpers.getProfileItem('Bio', userData.data.bio ?? 'Unavailable')}
                     {Helpers.getProfileItem('URL', userData.data.html_url, true)}
-                    {Helpers.getProfileItem('Created', Helpers.getDateString(userData.data.created_at))}
-                    {Helpers.getProfileItem('Updated', Helpers.getDateString(userData.data.updated_at))}
+                    {Helpers.getProfileItem('Created', Helpers.getDateString(userData.data.created_at, 'Unavailable'))}
+                    {Helpers.getProfileItem('Updated', Helpers.getDateString(userData.data.updated_at, 'Unavailable'))}
                 </div>
             </div>
         ),
