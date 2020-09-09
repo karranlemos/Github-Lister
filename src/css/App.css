@@ -2,6 +2,19 @@
 @import './fonts.css';
 @import './vars.css';
 
+body {
+  margin: 0;
+  font-family: var(--default-fonts);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
 .app-wrapper {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -222,7 +235,7 @@ form.wide-search-form input:focus {
 }
 
 form.wide-search-form input[type=search] {
-  padding: 10px;
+  padding: 15px;
   height: 50px;
   min-width: 0;
 }
@@ -239,7 +252,7 @@ form.wide-search-form button {
 }
 
 
-.profile-data. .profile-repos {
+.profile-data .profile-repos {
   word-wrap: break-word;
 }
 
@@ -273,12 +286,12 @@ form.wide-search-form button {
 
   font-size: 32px;
   font-weight: bold;
+  
 }
 
 .profile-data header.profile-header .user-type {
   display: flex;
   align-items: start;
-
   font-size: 24px;
 }
 
@@ -287,17 +300,11 @@ form.wide-search-form button {
   display: flex;
   flex-direction: column;
   align-content: stretch;
+  gap: 20px;
 }
 
 .profile-repos .profile-repo {
   padding: 20px;
-}
-
-.profile-repos .profile-repo:nth-child(even) {
-  background-color: var(--bg-color-main-content-secondary);
-}
-
-.profile-repos .profile-repo:nth-child(odd) {
   background-color: var(--bg-color-main-content);
 }
 
@@ -321,9 +328,12 @@ form.wide-search-form button {
 .profile-item.name-value-item {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
 
 .profile-item.name-value-item .item-name {
+  font-family: 'Asap Condensed', var(--default-fonts);
   font-weight: bold;
+  font-size: 22px;
+  text-transform: uppercase;
 }

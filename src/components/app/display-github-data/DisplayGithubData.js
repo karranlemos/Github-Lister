@@ -57,8 +57,6 @@ export default class DisplayGithubData extends React.Component {
             ),
         };
 
-        console.log(this.state.userData.state);
-
         if (['empty', 'error', 'loading'].includes(this.state.userData.state))
             return userStateReturns[this.state.userData.state]();
         return userStateReturns.delegate();
