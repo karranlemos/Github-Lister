@@ -273,8 +273,8 @@ form.wide-search-form button {
 }
 
 .profile-data header.profile-header .profile-picture {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
 
   margin-bottom: 10px;
@@ -285,8 +285,9 @@ form.wide-search-form button {
   display: flex;
   align-items: end;
 
-  font-size: 32px;
-  font-weight: bold;
+  font-family: 'Asap Condensed', var(--default-fonts);
+  font-size: 38px;
+  font-weight: 600;
   
 }
 
@@ -310,8 +311,9 @@ form.wide-search-form button {
 }
 
 .profile-repos .profile-repo .repo-title {
-  font-weight: bold;
-  font-size: 28px;
+  font-family: 'Asap Condensed', var(--default-fonts);
+  font-weight: 600;
+  font-size: 34px;
   margin: 20px 0;
 }
 
@@ -334,7 +336,7 @@ form.wide-search-form button {
 
 .profile-item.name-value-item .item-name {
   font-family: 'Asap Condensed', var(--default-fonts);
-  font-weight: bold;
+  font-weight: 600;
   font-size: 22px;
   text-transform: uppercase;
 }
