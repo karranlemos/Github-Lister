@@ -13,7 +13,7 @@ export default class SearchUser extends React.Component {
                     <input
                         type="search"
                         name="username"
-                        placeholder="Search for user..."
+                        placeholder="Enter username..."
                         onChange={this.onChange}
                     />
                     <button

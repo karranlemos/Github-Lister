@@ -75,7 +75,7 @@ export default class DisplayGithubData extends React.Component {
         const request = new XMLHttpRequest();
         request.onload = () => {
             if (request.status === 404) {
-                this.setUserDataError('User Not Found');
+                this.setUserDataError('User Not Found.');
                 return;
             }
             if (request.status === 403) {
@@ -83,7 +83,7 @@ export default class DisplayGithubData extends React.Component {
                 return;
             }
             if (request.status !== 200) {
-                this.setUserDataError("Couldn't fetch data");
+                this.setUserDataError("Couldn't fetch data.");
                 return;
             }
 
